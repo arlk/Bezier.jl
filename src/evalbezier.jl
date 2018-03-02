@@ -23,11 +23,11 @@ end
 
 Evaluate along at array of time instants.
 """
-function evalbezier(control::AbstractArray{T,2}, tvec::AbstractArray{T, 1}; alg::Symbol=:horner) where {T<:AbstractFloat}
+function evalbezier(control::AbstractArray{T,2}, tvec::AbstractArray{T, 1}) where {T<:AbstractFloat}
     # TODO Just a hack (only really meant for viz)
     p = zeros(size(control, 1), size(tvec, 1))
     for (i,t) in enumerate(tvec)
-        p[:,i] = evalbezier(control, t; alg=alg)
+        p[:,i] = evalbezier(control, t)
     end
     p
 end
