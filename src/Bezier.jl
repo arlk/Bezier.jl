@@ -1,5 +1,8 @@
 module Bezier
 
-# package code goes here
+export evalbezier, subdivide
+
+include("evalbezier.jl")
+include("subdivide.jl")
 
 end # module
