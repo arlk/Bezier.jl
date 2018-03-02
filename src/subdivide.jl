@@ -3,7 +3,7 @@
 
 Evaluate de Casteljau's algorithm.
 """
-function decastlejau(control::AbstractArray{T,2}, t::T) where {T<:AbstractFloat}
+function decasteljau(control::AbstractArray{T,2}, t::T) where {T<:AbstractFloat}
     n = size(control, 2) - 1
     β = zeros(size(control, 1), n+1, n+1)
     @inbounds β[:,:,1] = control
@@ -19,7 +19,7 @@ end
 Subdivide a Bezier curve using de Casteljau's algorithm.
 """
 function subdivide(control::AbstractArray{T,2}, t::T) where {T<:AbstractFloat}
-    β = decastlejau(control, t)
+    β = decasteljau(control, t)
     β₁ = β[:,1,:]
     β₂ = zeros(control)
     n = size(control, 2) - 1
